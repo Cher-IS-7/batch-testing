@@ -1,7 +1,7 @@
 @echo off
 
 REM Set the URL of the file you want to download
-set "url=hhttps://raw.githubusercontent.com/Cher-IS-7/batch-testing/main/main.bat"
+set "url=https://raw.githubusercontent.com/Cher-IS-7/batch-testing/main/main.bat"
 
 REM Set the path where you want to save the downloaded file
 set "output=%CD%\res-main.bat"
