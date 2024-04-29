@@ -1,3 +1,8 @@
 @echo off
 echo Res Downloader
-set "url=https://github.com/Cher-IS-7/batch-testing/tree/ce359e97bf5c4ead5c83d1405d2d7384f10acbfe/download"
+set "username=Cher-IS-7"
+set "repository=batch-testing"
+set "branch=b9826b75f57ea378ce394e678490b7d2a86cc6ae"
+set "folder=download"
+
+curl -LJO https://api.github.com/repos/%username%/%repository%/zipball/%branch%/%folder%
