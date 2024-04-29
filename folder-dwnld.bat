@@ -1,0 +1,3 @@
+@echo off
+echo Downloading folder from GitHub...
+svn export https://github.com/username/repository/trunk/path/to/folder
