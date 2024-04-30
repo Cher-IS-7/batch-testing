@@ -12,5 +12,3 @@ for /r C:\ %%f in (%targetFile%) do (
         exit /b
     )
 )
-
-exit
