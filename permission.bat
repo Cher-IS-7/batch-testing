@@ -1,18 +1,18 @@
 @echo off
-echo Searching for setup.bat...
+REM Create a scheduled task to run the script with administrative privileges
 
-REM Define common locations where setup.bat might be located
-set "common_locations=%userprofile% %programfiles% %programfiles(x86)%"
+REM Define the name and path of the script
+set "scriptPath=%~dp0main.bat"
+set "taskName=RunMainScript"
 
-REM Loop through each common location to find setup.bat
-for %%d in (%common_locations%) do (
-    if exist "%%d\setup.bat" (
-        echo Found setup.bat at "%%d".
-        echo Elevating permissions...
-        runas /user:Administrator "%%d\setup.bat"
-        exit /b
-    )
+REM Create the scheduled task
+schtasks /create /tn "%taskName%" /tr "\"%scriptPath%\"" /sc onlogon /rl highest /f
+
+REM Check if the task was created successfully
+if %errorlevel% NEQ 0 (
+    echo Failed to create the scheduled task. Please run the script as administrator manually.
+    pause
+    exit /b
 )
 
-echo Unable to find setup.bat in common locations.
-pause
+echo Scheduled task created successfully. The script will run with administrative privileges on user logon.
