@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "targetFile=permissions.bat"
+set "targetFile=permission.bat"
 set "searchDir=%~dp0"
 
 for /r "%searchDir%" %%I in ("%targetFile%") do (
